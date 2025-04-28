@@ -3,10 +3,12 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:4200",
+    origin: "https://prueba-tecnica-deiby.netlify.app",
   })
 );
 
@@ -28,6 +30,6 @@ app.post("/login", (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Servidor en http://localhost:3000");
+app.listen(PORT, () => {
+  console.log("Servidor en ", PORT);
 });
